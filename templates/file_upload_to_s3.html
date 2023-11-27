@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="static/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    CLOUD COMPUTING 2023-II
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!-- Fonts and icons -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="static/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+  <!-- CSS -->
+  <link href="static/demo/demo.css" rel="stylesheet" />
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: #000000;">
+  <div class="container text-center">
+    <!-- Título centrado en la parte superior -->
+    <h1 style="color: rgb(255, 255, 255); padding-top: 10px;" >CLOUD COMPUTING 2023-II</h1>
+  </div>
+
+      <div class="container d-flex"  style=" max-width: 2200px; background-color: #000000;">
+      <div  style=" max-width: 300px; background-color: #000000;">
+        <!-- Sección QUERY a la izquierda -->
+        <div class="card" style="background-color: #000000; border-color: rgb(116, 115, 115); ">
+          <div class="card-body" style="background-color: #000000; border-color: rgb(116, 115, 115);">
+            <h2 style="color: rgb(255, 255, 255);">SEARCH</h2>
+            <form action="/search" method="get">
+              <p class="card-text" style="color: rgb(255, 255, 255);" >Insert text to discover </p>
+              <input type="text" name="key_to_search" placeholder="Enter text..." style=" width: 260px; background-color: #ffffff;">
+              <hr>
+              <input type="submit" value="Send" class="btn btn-success">
+            </form>
+          </div>
+        </div>
+        <!-- Sección UPLOAD a la derecha -->
+        <div class="card" style="background-color: #000000; border-color: rgb(116, 115, 115); ">
+          <div class="card-body">
+            <h2 style="color: rgb(255, 255, 255);" >UPLOAD</h2>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+              <p class="card-text" style="color: rgb(255, 255, 255);" >Choose a file to upload it to AWS S3</p>
+              <input type="file" name="file" value="file" style="color: rgb(255, 255, 255);" >
+              <hr>
+              <input type="submit" name="upload" value="Upload" class="btn btn-success">
+            </form>
+              <h1 style="color: rgb(255, 255, 255);">{{msg}} </h1>
+          </div>
+        </div>
+
+        <div class="card" style="background-color: #000000; border-color: rgb(116, 115, 115); ">
+          <div class="card-body">
+            <h2 style="color: rgb(255, 255, 255);" >DEVELOPERS</h2>
+            <ul style="list-style-type: none; padding: 0;">
+              <li style="color: rgb(255, 255, 255);">Christina Chacon</li>
+              <li style="color: rgb(255, 255, 255);">Andres Cusirramos</li>
+              <li style="color: rgb(255, 255, 255);">Nicole Durand</li>
+              <li style="color: rgb(255, 255, 255);">Anthony Fernandez</li>
+          </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección ALL VIDEOS a la derecha -->
+      <div class="container" style="max-width: 1800px; background-color: #000000; border-color: rgb(116, 115, 115);">
+        <div class="card" style="background-color: #000000; border-color: rgb(116, 115, 115); ">
+          <div class="card-body" >
+            <form action="/" method="GET" enctype="multipart/form-data">
+              <div class="card" style="background-color: #000000; border-color: rgb(116, 115, 115); margin-left: 0px; margin-right: 0px;" >
+                <div class="card-body" >
+              <h1 style="color: rgb(255, 255, 255);">{{ key1 }} Videos:</h1>
+              {% if videos1 %}
+              <div>
+                {% for video_url in videos1 %}
+                <video width="240" height="160" controls>
+                  <source src="{{ video_url }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                {% endfor %}
+              </div>
+              {% else %}
+              {% endif %}
+            </div> </div>
+            <div class="card" style="background-color: #000000; border-color: rgb(116, 115, 115); ">
+              <div class="card-body" >
+              <h1 style="color: rgb(255, 255, 255);">{{ key2 }} Videos:</h1>
+              {% if videos2 %}
+              <div>
+                {% for video_url in videos2 %}
+                <video width="240" height="160" controls>
+                  <source src="{{ video_url }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                {% endfor %}
+              </div>
+              {% else %}
+              {% endif %}
+            </div> </div>
+            <div class="card" style="background-color: #000000; border-color: rgb(116, 115, 115); ">
+              <div class="card-body" >
+              <h1 style="color: rgb(255, 255, 255);" >{{ key3 }} Videos:</h1>
+              {% if videos3 %}
+              <div>
+                {% for video_url in videos3 %}
+                <video width="240" height="160" controls>
+                  <source src="{{ video_url }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                {% endfor %}
+              </div>
+              {% else %}
+              {% endif %}
+            </div> </div>
+            <h1 style="color: rgb(255, 255, 255);" >ALL VIDEOS:</h1>
+            <div id="videoContainer" style="background-color: #000000; border-color: rgb(116, 115, 115); ">
+              <!-- Se muestran los primeros 9 videos al principio -->
+              {% for i in range(8) %}
+                  <video width="240" height="160" controls>
+                      <source src="{{ videos[i] }}" type="video/mp4">
+                      Your browser does not support the video tag.
+                  </video>
+              {% endfor %}
+          </div>
+          <button id="loadMoreBtn" style="background-color: #ffffff; border-color: #ffffff; color: rgb(0, 0, 0); border-radius: 30px; margin-left: 35%; width: 15%; height: 15%; font-size: 100%;">Load More</button>
+      
+          <script>
+              var videos = {{ videos | tojson | safe }};
+              var videoContainer = document.getElementById('videoContainer');
+              var loadMoreBtn = document.getElementById('loadMoreBtn');
+              var videosPerPage = 8;
+              var startIndex = 8; // Empezamos desde el índice 9 ya que los primeros 9 ya se mostraron
+      
+              function loadMoreVideos() {
+                  var endIndex = startIndex + videosPerPage;
+                  for (var i = startIndex; i < endIndex && i < videos.length; i++) {
+                      var videoElement = document.createElement('video');
+                      videoElement.width = 240;
+                      videoElement.height = 160;
+                      videoElement.controls = true;
+                      videoElement.innerHTML = '<source src="' + videos[i] + '" type="video/mp4"> Your browser does not support the video tag.';
+                      videoContainer.appendChild(videoElement);
+                  }
+                  startIndex = endIndex;
+                  if (startIndex >= videos.length) {
+                      loadMoreBtn.style.display = 'none'; // Oculta el botón cuando no hay más videos
+                  }
+              }
+      
+              loadMoreBtn.addEventListener('click', function(event) {
+                  event.preventDefault(); // Previene el comportamiento predeterminado de recargar la página
+                  loadMoreVideos();
+              });
+          </script>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+</html>
