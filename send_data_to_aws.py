@@ -1,4 +1,4 @@
-
+from flask_ngrok import run_with_ngrok
 from flask import Flask, render_template, request, jsonify
 import requests
 import os
@@ -6,6 +6,7 @@ import random
 import boto3
 import json
 app = Flask(__name__)
+run_with_ngrok(app)
 from werkzeug.utils import secure_filename
 
 s3 = boto3.client('s3',
@@ -169,8 +170,10 @@ def upload():
         return render_template("file_upload_to_s3.html",msg =msg, videos = videos)
 
 if __name__ == "__main__":
-    app.run(host=os.getenv('IP', '0.0.0.0'), 
-            port=int(os.getenv('PORT', 4444)))
+    app.run()
+        #host=os.getenv('IP', '0.0.0.0'),  port=int(os.getenv('PORT', 4444)))
+    
+    
     
 
 
